@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>🌍 Capital Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- THEME TOGGLE -->
+<div class="theme-toggle">
+    <label>
+        🌙
+        <input type="checkbox" id="theme-toggle">
+        ☀️
+    </label>
+</div>
+
+<!-- LOGIN -->
+<div id="login-section" class="card login-card">
+    <h1>🌍 Capital Quiz</h1>
+    <input id="username" placeholder="Enter your name">
+    <button id="start-btn">Login</button>
+</div>
+
+<!-- REGION SELECTION -->
+<div id="region-section" class="card hidden">
+    <h2>Select Region</h2>
+    <div class="region-grid">
+        <div class="region-box" onclick="selectRegion('Asia')">Asia</div>
+        <div class="region-box" onclick="selectRegion('Europe')">Europe</div>
+        <div class="region-box" onclick="selectRegion('Africa')">Africa</div>
+        <div class="region-box" onclick="selectRegion('Americas')">Americas</div>
+        <div class="region-box" onclick="selectRegion('Oceania')">Oceania</div>
+        <div class="region-box" onclick="selectRegion('All')">All</div>
+    </div>
+</div>
+
+<!-- LEVEL SELECTION -->
+<div id="level-section" class="card hidden">
+    <h2>Select Difficulty</h2>
+    <div class="level-container">
+        <div class="level easy" onclick="selectLevel('easy')">Easy</div>
+        <div class="level medium" onclick="selectLevel('medium')">Medium</div>
+        <div class="level hard" onclick="selectLevel('hard')">Hard</div>
+    </div>
+</div>
+
+<!-- QUIZ SECTION -->
+<div id="quiz-section" class="card quiz-card hidden">
+
+    <div class="top-bar">
+        <span id="lives">❤️ Lives: 5</span>
+        <span id="timer">⏱️ 10s</span>
+        <button id="exit-btn">❌</button>
+    </div>
+
+    <div id="progress-container">
+        <div id="progress-bar"></div>
+    </div>
+    <p id="progress-text"></p>
+
+    <h2 id="question">Question</h2>
+
+    <div id="options"></div>
+
+    <div class="bottom-bar">
+        <span id="score">Score: 0</span>
+        <span id="combo">🔥 Combo: 0</span>
+    </div>
+</div>
+
+<!-- COMBO BONUS POPUP -->
+<div id="combo-popup" class="combo-popup"></div>
+
+
+<!-- FINAL / LEADERBOARD -->
+<div id="final-section" class="card final-card hidden">
+    <h2>🎉 Quiz Finished</h2>
+    <p id="final-score"></p>
+
+    <h3>🏆 Leaderboard</h3>
+    <ul id="leaderboard"></ul>
+
+    <button onclick="location.reload()">Restart</button>
+</div>
+
+<script src="script.js"></script> 
+<script>
+/* Dark / Light Toggle */
+const toggle = document.getElementById("theme-toggle");
+toggle.addEventListener("change", () => {
+    document.body.classList.toggle("dark");
+});
+</script>
+
+</body>
+</html>
